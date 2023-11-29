@@ -1,0 +1,131 @@
+16:27:24.011 [main] DEBUG com.intuit.karate.Suite - [config] classpath:karate-config.js
+16:27:25.324 [pool-1-thread-3] INFO  com.intuit.karate - karate.env system property was: null 
+16:27:25.325 [pool-1-thread-1] INFO  com.intuit.karate - karate.env system property was: null 
+16:27:25.323 [pool-1-thread-4] INFO  com.intuit.karate - karate.env system property was: null 
+16:27:25.323 [pool-1-thread-2] INFO  com.intuit.karate - karate.env system property was: null 
+16:27:26.452 [pool-1-thread-4] DEBUG com.intuit.karate - request:
+1 > POST https://graphql.postman-echo.com/graphql
+1 > Content-Type: application/json; charset=UTF-8
+1 > Content-Length: 54
+1 > Host: graphql.postman-echo.com
+1 > Connection: Keep-Alive
+1 > User-Agent: Apache-HttpClient/4.5.13 (Java/1.8.0_371)
+1 > Accept-Encoding: gzip,deflate
+{"query":"subscription Greetings {\n    greetings\n}"}
+
+16:27:26.452 [pool-1-thread-3] DEBUG com.intuit.karate - request:
+1 > POST https://graphql.postman-echo.com/graphql
+1 > Content-Type: application/json; charset=UTF-8
+1 > Content-Length: 122
+1 > Host: graphql.postman-echo.com
+1 > Connection: Keep-Alive
+1 > User-Agent: Apache-HttpClient/4.5.13 (Java/1.8.0_371)
+1 > Accept-Encoding: gzip,deflate
+{"query":"mutation CreatePerson {\ncreatePerson(person: { name: \"karatemutation\" }) {\n    id\n    age\n    name\n}\n}"}
+
+16:27:26.452 [pool-1-thread-2] DEBUG com.intuit.karate - request:
+1 > POST https://graphql.postman-echo.com/graphql
+1 > Content-Type: application/json; charset=UTF-8
+1 > Content-Length: 63
+1 > Host: graphql.postman-echo.com
+1 > Connection: Keep-Alive
+1 > User-Agent: Apache-HttpClient/4.5.13 (Java/1.8.0_371)
+1 > Accept-Encoding: gzip,deflate
+{"query":" query Hello {\nhello\nrequest {\n    headers\n}\n}"}
+
+16:27:26.456 [pool-1-thread-1] DEBUG com.intuit.karate - request:
+1 > POST https://graphql.postman-echo.com/graphql
+1 > Content-Type: application/json; charset=UTF-8
+1 > Content-Length: 77
+1 > Host: graphql.postman-echo.com
+1 > Connection: Keep-Alive
+1 > User-Agent: Apache-HttpClient/4.5.13 (Java/1.8.0_371)
+1 > Accept-Encoding: gzip,deflate
+{"query":"query Hello {\n  hello(person: { name: \"Karate framework\" })\n}"}
+
+16:27:27.804 [pool-1-thread-2] DEBUG com.intuit.karate - response time in milliseconds: 1344
+1 < 200
+1 < Date: Wed, 29 Nov 2023 10:57:27 GMT
+1 < Content-Type: application/json; charset=utf-8
+1 < Content-Length: 430
+1 < Connection: keep-alive
+1 < access-control-allow-origin: *
+{"data":{"hello":"Hello John Doe","request":{"headers":{"connection":"keep-alive","accept-encoding":"gzip,deflate","content-length":"63","content-type":"application/json; charset=UTF-8","host":"graphql.postman-echo.com","user-agent":"Apache-HttpClient/4.5.13 (Java/1.8.0_371)","x-amzn-trace-id":"Root=1-65671917-36fd86fd707e49be3def1c25","x-forwarded-for":"121.244.135.133","x-forwarded-port":"443","x-forwarded-proto":"https"}}}}
+
+16:27:27.804 [pool-1-thread-1] DEBUG com.intuit.karate - response time in milliseconds: 1343
+1 < 200
+1 < Date: Wed, 29 Nov 2023 10:57:27 GMT
+1 < Content-Type: application/json; charset=utf-8
+1 < Content-Length: 43
+1 < Connection: keep-alive
+1 < access-control-allow-origin: *
+{"data":{"hello":"Hello Karate framework"}}
+
+16:27:27.804 [pool-1-thread-4] DEBUG com.intuit.karate - response time in milliseconds: 1344
+1 < 200
+1 < Date: Wed, 29 Nov 2023 10:57:27 GMT
+1 < Content-Type: text/event-stream
+1 < Transfer-Encoding: chunked
+1 < Connection: keep-alive
+1 < access-control-allow-origin: *
+1 < cache-control: no-cache
+1 < content-encoding: none
+
+
+16:27:27.810 [pool-1-thread-4] INFO  com.intuit.karate - [print] data: {"data":{"greetings":"Hi"}}
+
+data: {"data":{"greetings":"Bonjour"}}
+
+data: {"data":{"greetings":"Hola"}}
+
+data: {"data":{"greetings":"Ciao"}}
+
+data: {"data":{"greetings":"Zdravo"}}
+
+ 
+16:27:27.818 [pool-1-thread-1] INFO  com.intuit.karate - [print] {
+  "data": {
+    "hello": "Hello Karate framework"
+  }
+}
+ 
+16:27:27.821 [pool-1-thread-2] INFO  com.intuit.karate - [print] {
+  "data": {
+    "hello": "Hello John Doe",
+    "request": {
+      "headers": {
+        "connection": "keep-alive",
+        "accept-encoding": "gzip,deflate",
+        "content-length": "63",
+        "content-type": "application/json; charset=UTF-8",
+        "host": "graphql.postman-echo.com",
+        "user-agent": "Apache-HttpClient/4.5.13 (Java/1.8.0_371)",
+        "x-amzn-trace-id": "Root=1-65671917-36fd86fd707e49be3def1c25",
+        "x-forwarded-for": "121.244.135.133",
+        "x-forwarded-port": "443",
+        "x-forwarded-proto": "https"
+      }
+    }
+  }
+}
+ 
+16:27:27.824 [pool-1-thread-3] DEBUG com.intuit.karate - response time in milliseconds: 1367
+1 < 200
+1 < Date: Wed, 29 Nov 2023 10:57:27 GMT
+1 < Content-Type: application/json; charset=utf-8
+1 < Content-Length: 70
+1 < Connection: keep-alive
+1 < access-control-allow-origin: *
+{"data":{"createPerson":{"id":"10","age":57,"name":"karatemutation"}}}
+
+16:27:27.827 [pool-1-thread-3] INFO  com.intuit.karate - [print] {
+  "data": {
+    "createPerson": {
+      "id": "10",
+      "age": 57,
+      "name": "karatemutation"
+    }
+  }
+}
+ 
+16:27:29.082 [pool-2-thread-1] INFO  com.intuit.karate.Suite - <<pass>> feature 1 of 1 (0 remaining) classpath:examples/users/usersAPItesting.feature
