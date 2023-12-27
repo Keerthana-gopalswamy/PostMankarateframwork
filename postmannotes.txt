@@ -1,0 +1,435 @@
+Another graphQL testing demo website:https://stepzen.com/blog/free-public-graphql-apis
+  https://www.postman.com/downloads/ to download postman tool
+
+In api we have two testing Rest and graphql testing in postman tool
+
+Request-->API-->Response
+
+first create the workplace using workplace option
+workplace->collection->http request
+creating collectons
+Anything to create new user should crate the workplace 
+HTTP request -->(https://reqres.in/)
+creating the http request
+just paste the url in this page-->https://reqres.in/
+for Get,Post,Put,Delete..Etc
+After the get save it as save as option
+
+to print the body in the request use json only
+body->raw->json
+this is for the  body->graphql used in postman tool
+to get the first graphql  click Fetch/xhr in google page
+we can check assrtion in cookies,status code,headers
+
+GRAPHQL-->only use POST
+GRAPHQL is pariticurlarly used to fetch the particular user details
+Queries:to read the data in graphql
+Mutation:to create or write the data in graphql
+Subscriptions:to listen or check whether the data is created in graphql
+
+<---steps to use postman tool-->
+first open the http request
+select the request
+give the header value copied in inspect->network->request header
+in authintication before value give Bearer 
+give the body condition in body session value copied in 
+inspect->network->payload
+give some assertion for status code
+after to get the response give the variable id number with {}
+filter queries using where clause
+do not use delete request  
+how to refresh the token in postmantool and how to save the variable in postman-->dout????????????
+mutation 
+cannot get the status code of 'post' request directly in cypress
+(In graphql he url is same for all
+Authorization-->token->it is also same for all the graphql  url ut 
+change day by day (token value) )--->header section
+set tha environment to use it in header tag
+(all the time get  the Authorization instead of that save as environment variable
+to call the auth token-->Bearer {{auth_token}}
+In mutation first save the variables correctly
+pre-request scripts-->
+
+cypress using api-->Query Parameters, Headers, Cookies & Bearer Token Auth
+how to give query in cypress
+first-->save the url in request() method with body header
+
+ 
+    
+
+--------------><------------------------
+first do not use any wait in api request
+Authorization this header cannot pass in the assertion 
+-------><---------------------
+how to get the token value in cypress using locators
+console end of the page
+learner how to validate the json data
+json
+all the headers ----dout
+post api request in cypress
+save the body values in fixtures
+learned how to store
+validate schema in cypress npm install ajv
+-------------><---------
+to store the variable in seperate bcz every time change the data in code
+insteadly change only the variable
+know how to hit request
+know how to da assertion
+---><----
+----------------------------------------------------><-------------------------
+---------->1407<---- Api request in cypress using intercept() method  with GraphQL
+1)api request use intercert() method in cypress then with the help of intercept
+checks the assertion values
+in intercept path means url
+first save the path or url in alias
+then give the name to the intercept wait
+and give some assertion
+in cypress to test api we use intercept() inside url as path,method,body as req.reply inside body to save
+only done today alias in multiple query and mutation
+--------1708-------------
+api in cypress 
+first save the url in intercept() method
+then save the headers, body and status code
+then use expect to validate 
+const bodyval=respo.response.body
+console.log(bodyval.data[0].idBook)------------>like this
+operationName means the value of the date name for we give response.header(or)body
+use of utils in that we give operationname
+
+
+in this utils file cannot compare the methods in ifelse statement
+
+
+
+
+in another method we take the request body,headers like this
+(cy.intercept('POST', 'https://fakerestapi.azurewebsites.net/api/v1/Authors', (req) => {
+  // Create a mock response body with data that matches the expected response structure
+  const mockResponse = {
+    id: 0,
+    idBook:0 ,
+    firstName: 'string',
+    lastName: 'string'
+  };
+
+  // Reply with the mock response data and a 200 status code
+  req.reply({
+    statusCode: 200,
+    body: mockResponse,
+  });
+}).as('post');)
+
+
+-------------------------1608---------------
+learned how to validate headers in cypress
+learned how to a request body in api request in cypress
+it only reflect in cypress not in the webpage
+
+----------><------------validate schema--------
+install ajv to validate schema
+using npm install ajv
+then save ajv in requires only for javascript like this 
+import Ajv from "ajv";---->imported value
+const avj=new AJV()--->import data
+After saved the schema in the variable
+const schema={
+schema value
+}
+---then
+ the ajv-->const validate=avj.compile(schema)--->comileing json schema using ajv
+then validating the data in json schema--->const isvalid=validate(response.body)
+then assertion-->expect(isvalid).to.be.true;
+
+---><---
+cy.intercept('POST', '/graphql-endpoint', (req) => {
+  // Modify the intercepted request if needed
+  // For example, you can log the request body
+  console.log(req.body);
+}).as('graphqlRequest');
+try this-->tommorow
+---------------><---------2408
+api request in cypress
+first give the api request in cypress using intercept method
+first expect the status code
+then print the response body like this
+const respobody=respo.response.body.data
+    cy.log(respobody)
+after that print the query name like this
+  const flags = respobody.getpeopleInformation;
+  cy.log(flags);
+another method-->to print the body in postman tool we use
+pm.test("getpeopleInformation data",()=>{
+    const getpeopleInformationdata={
+     falg:responseData.getpeopleInformation.flags,
+
+ serviceConfiguration:responseData.getpeopleInformation.serviceConfiguration
+    }
+    console.log(getpeopleInformationdata)
+  
+})
+---------------><-----------
+retrive headers in postman tool
+first save the headers in format as
+var respoheaders=pm.response.headers
+to print the responseHeaders as text use {JSON.stringify(pm.response.headers)}
+(var responseHeaders=pm.response.headers;
+var headersText = '';
+Object.keys(responseHeaders.toObject()).forEach(function (key) {
+    headersText += key + ': ' + responseHeaders.get(key) + '\n';
+});
+console.log(headersText )
+)--->then create a variable to save headers text
+to change the array to text as headers we use keys as constructor
+in cypress to convert headers to headers test
+we use json stringify
+like example:-->const headers=respo.response.headers
+                   cy.log(headers)
+                   const headtext=JSON.stringify(headers)
+                   cy.log(headtext)
+only completed --->1.	Validate response body
+2.	Validate response headers
+practice assertion in cypress and postman tool 
+ptactice some java script concepts
+
+to find specific graphql apiresponse in cypress--><----2908--
+to get the specific just use the operationName of the request
+cy.intercept('POST', 'https://portal-api.learnship.today/graphql',(req)=>{
+            if (req.body.(operation name).includes('getpeopleInformation')) {
+                req.alias = 'getpeopleInfo';
+              }
+            
+        })
+  cy.wait('@getpeopleInfo').then((respo2)=>{
+                    cy.log(respo2.response.body)
+                 })
+(req)-->it is a third argument in intercept
+  req.alias = 'getpeopleInfo';------>it represent the req response only it gives the multiple response
+
+in the above example we use includes() in if statement
+//like this example// 
+cy.intercept('POST', 'https://portal-api.learnship.today/graphql',(req)=>{
+            if (req.body.query.includes('getpeopleInformation')) {
+                req.alias = 'getpeopleInfo';
+              }
+            
+        })
+  cy.wait('@getpeopleInfo').then((respo2)=>{
+                    cy.log(respo2.response.body)
+                 })
+
+utility function is used to export the code to pom file with the helpof import 
+it is used to code optimization
+-------------><-----------0830-----
+started to learn query and mutation in cypress
+query is used to retrive the data
+mutation is used to create/update the data
+to print the response in text
+    (const getLearnerTasksresponsetext=JSON.stringify(respo2.response.body))
+to print the response header as text in cypress
+const peopleinforespoheaderstext=JSON.stringify(respo1.response.headers)
+      
+mutation in graphql--->using postman tool
+in postmantool only modify the variable
+but in cypress we can add data in mutation
+give the update in mutation
+modify mutation
+to add mutation in cypress use 
+(cy.intercept('POST', 'https://fakerestapi.azurewebsites.net/api/v1/CoverPhotos', (req) => {
+      // Modify the request body
+      req.body = {
+        // Add your request body data here
+        id: 123,
+        title: 'Book Title',
+        description: 'Book Description'
+      }
+      req.reply(req.body);
+
+        }).as('cover'))--->example
+send the mutation variable like above example
+mutation in postman modify only string
+not numbers
+completed utility function,mutation,query
+postman tool->completed
+ 
+
+-----------------3108-----------
+API Authentications - Basic, Digest, Bearer Token & API Key
+how to give  Authentications  in cypress
+bearer token in cypress using
+-----------0109-------------API testing in cypress usin GraphQL POST request
+><Practice><
+retriving response 
+retriving specific response
+today learning --0409--
+difference between request and intercept
+cy.request() is used to make the request then retrive the curent response
+cy.intercept() is used to intercept and spy the particular response which is hitted by the user
+
+validate response in cypress using utility function gives the exact value in cypress
+using ustility function first checking the query operationName is equal to the given by user operationName 
+validating the operation name
+printion the operationname by user gives
+hasOwnProperty-->it means the the operationname inside the variable
+practice api request in cypress
+
+
+validate operation name?
+how to validate response?
+---------0509 validate operation name----
+In API testing in  cypress to validate operation name
+export const aliasQuery = (req, operationName) => {
+  const { body } = req
+  console.log(body.hasOwnProperty('query') && body.query.includes(operationName))
+  
+}--->take it as example
+in this we use incluces() 
+
+started getannounement feature file in cypress
+instead of include() method we use (=== operator) in that just give the operationName===operation value
+just like this
+in this querydataval we will give full value
+ const querydata="query getAnnouncements($userId: String!) {\n  getAnnouncements(userId: $userId) {\n    hashKey\n    announcement\n  }\n}\n"
+      if (req.body.query===querydata)
+in the cypress we use two method to get the specific response in cypress using API request
+1)includes()
+2)(=== operator)
+Also in utility
+using utility function in cypress
+operation name means name of the queryvalue in cypress
+for example
+export const aliasQuery = (req, operationName) => {
+  const { body } = req
+  console.log(body.hasOwnProperty('query') && body.query.includes(operationName))
+ console.log(body.query)
+}--->utility function
+import { aliasQuery} from "../UtilsAPI/getpeopleutils";
+ aliasQuery(req, 'operationName')----> instead of operationName give query name
+X----validating operationName-----X-----
+----------><0907><---------------
+validateing reponse in cypress using assertion in wrap()
+to print the response in cypress using utility function
+like this
+import { haslearnersrespo} from "../Utils/getlearnerutils";
+ const learnerres=respo.response.body
+    haslearnersrespo({learnerres})
+utility function
+export const haslearnersrespo=(response)=>{
+  console.log(response)
+}
+
+export const aliasQuery = (req, operationName) => {
+  if (hasOperationName(req, operationName)) {
+    req.alias = `gql${operationName}Query`
+  }
+}--->dout
+In the postman tool overall completed to use in cypress
+oAuth token--we just use the token and id to use it for next next requests
+but to get that we want clientid,clientsecreate,grant type -->this all are important in cypress and postman tool
+after getting the access token and id then do the testing
+after all this user can validate response
+ for the clientid,client secreate are cannot create by own
+---><----
+for example purpose using
+_____________________________________________________________><___________
+API Authentications - OAuth 2.0 Authentication-GitHub App 1209(this all for cy.request())
+to test http request in postman we should have client id and client secret
+1-->first creating a application in github we get the client id and client secret and auth code
+creating go to setting->developer setting->create new application
+1209-->client_id:5e52f2cb0c26bd52f73d
+client_secreat :2686af3a6ee232b10f8d9890e4c5aef914b9747b
+after this
+2--->creating auth code-->
+Auth code-->https://github.com/login/oauth/authorize?client_id=(get the token clientid in github)
+after authorization-->https://www.w3schools.com/?code=a12ef17ffb5264208c56--after the auth code 
+authorization code is generate 
+graphql queries and mutation in cypress and postman tool
+3--->used in postman tool
+post:https://github.com/login/oauth/access_token
+client_id
+client_secreat 
+auth code
+then save and send get the access token(only comes as text)
+4---->
+to get the response in postmantool with this all credintals
+after that giver the bearer token an access token
+give the access token in the GET request to get the response
+5--->using cypres
+after give the request credintals
+using cy.request() in that give credintals
+then split the access token 
+
+then get the access token
+today completed OAuth token using cy.request() using w3school.com
+------1409------  OAuth token using cy.intercept()
+using github login 
+url to visit("https://github.com/")
+and username(Keerthana-gopalswamy) and password(Keerthana@2301)
+with the help of this use cy.intercept()--->dout?in this line having a dout as how to use intercept method
+-------1309 compketes sample program------------
+*GraphQL mutation--1409
+-----environment--
+they are two types 
+global and local environment variable 
+to  save the access token value in the environment 
+like this use the response
+//console.log(pm.environment.set('token',pm.response.json().authorization))
+//console.log(pm.response.headers)
+
+Saving the output variable values in the environment
+Set variables with the script using (set keyword)
+_____using test 
+Global: pm.globals.set("name", "Edison");
+Collection: pm.collectionVariables.set("name", "Newton");
+Environment:pm.environment.set("name", "Rutherford");
+Local:  pm.variables.set("name", "Ramanujan");
+
+Gettting Variables with script using (Get keyword)
+Global:  pm.globals.get("name");
+Collection:  pm.collectionVariables.get("name");
+Environment: pm.environment.get("name");
+Local:  pm.variables.get("name"); 
+
+________
+To removeing the value using keyword(unset)
+To remove:    pm.environment.unset("name");
+
+to svae the authorization header value in any environment used it in the request call 
+*)notes Learned get and set variables
+*)notes overlapping
+*)json path finder
+
+
+mutation in postman tool
+Print the api framework to github
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
